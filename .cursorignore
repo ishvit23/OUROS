@@ -1,0 +1,14 @@
+.env
+.env.*
+*.key
+*.pem
+secrets/
+credentials/
+infra/
+terraform.tfstate
+config/secrets.yml
+*.p12
+*.pfx
+data/
+checkpoints/
+artifacts/

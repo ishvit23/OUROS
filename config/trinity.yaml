@@ -1,0 +1,23 @@
+explorer:
+  type: agentscope_workflow
+  rollout_batch_size: 8
+  max_rollout_workers: 2
+
+buffer:
+  type: episodic_replay
+  source: chroma_episodic_memory
+  priority_field: reward_signal
+  filter: exclude_from_training == false
+  min_records_before_training: 50
+
+trainer:
+  algorithm_type: r3l
+  base_model: Qwen/Qwen2.5-1.5B-Instruct
+  backend: tinker
+  max_steps: 500
+  save_checkpoint_every: 100
+  checkpoint_dir: ./checkpoints/trinity/
+
+monitor:
+  type: wandb
+  project: research-system-rft
