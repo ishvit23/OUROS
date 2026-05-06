@@ -1,0 +1,13 @@
+# Change any value here without changing application code.
+models:
+  literature_review: ollama/llama3.1:8b
+  hypothesis_gen: ollama/mistral:7b
+  hypothesis_brainstorm: ollama/mistral:7b
+  methodology_design: ollama/llama3.1:8b
+  experiment_execution: ollama/deepseek-coder:6.7b
+  results_analysis: ollama/llama3.1:8b
+  reflection: ollama/llama3.1:70b
+
+trinity_rft:
+  base_model: Qwen/Qwen2.5-1.5B-Instruct
+  backend: tinker

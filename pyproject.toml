@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ouros"
+version = "0.1.0"
+description = "Autonomous research system for closed-loop scientific discovery."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ouros Contributors" }]
+dependencies = [
+    "langgraph>=0.2.0",
+    "litellm>=1.40.0",
+    "pydantic>=2.0",
+    "pymupdf>=1.24.0",
+    "pyyaml>=6.0.0",
+    "requests>=2.31.0",
+    "sqlmodel>=0.0.18",
+]
+
+[project.scripts]
+ouros = "ouros.cli:main"
+
+[project.optional-dependencies]
+analysis = [
+    "matplotlib>=3.9.0",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "scipy>=1.13.0",
+]
+interface = [
+    "gradio>=4.0.0",
+]
+memory = [
+    "chromadb>=0.5.0",
+]
+observability = [
+    "langsmith>=0.1.0",
+    "wandb>=0.17.0",
+]
+phase2 = [
+    "trinity-rft[tinker]>=0.5.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ouros"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "B",
+    "E",
+    "F",
+    "I",
+    "RUF",
+    "SIM",
+    "UP",
+]
+
+[tool.ruff.format]
+quote-style = "double"

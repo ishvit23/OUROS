@@ -1,0 +1,27 @@
+system:
+  run_storage: ./data/runs/
+  memory_storage: ./data/memory/
+  artifact_storage: ./data/artifacts/
+  checkpoint_storage: ./checkpoints/
+  log_level: INFO
+
+orchestrator:
+  max_hypothesis_retries: 2
+  max_execution_retries: 3
+  execution_timeout_sec: 600
+  human_checkpoint_timeout_sec: 0
+
+blackboard:
+  db_path: ./data/blackboard.db
+  conflict_strategy: optimistic_lock
+
+memory:
+  episodic_top_k: 3
+  semantic_chunk_size: 512
+  semantic_overlap: 64
+
+rl:
+  phase: 1
+  bandit_epsilon: 0.20
+  bandit_init_weight: 0.60
+  trinity_config: ./config/trinity.yaml
