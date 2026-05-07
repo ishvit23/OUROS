@@ -22,6 +22,7 @@ dependencies = [
 
 [project.scripts]
 ouros = "ouros.cli:main"
+ouros-pull-ollama-models = "ouros.pull_ollama:main"
 
 [project.optional-dependencies]
 analysis = [

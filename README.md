@@ -34,11 +34,16 @@ See `docs/milestone-1-implementation-plan.md` for the detailed plan.
 - Python 3.11 or newer.
 - `uv` for dependency management and local commands.
 - Ollama running locally for model-backed agent calls.
-- Local models from the spec, for example:
+- Local models from `config/models.yaml`. Pull everything Ollama needs in one step:
 
 ```bash
-ollama pull llama3.1:8b
-ollama pull mistral:7b
+uv run ouros-pull-ollama-models
+```
+
+Preview the pulls without downloading:
+
+```bash
+uv run ouros-pull-ollama-models --dry-run
 ```
 
 Ollama should be reachable at `http://localhost:11434` unless `OLLAMA_BASE_URL` is set.

@@ -1,4 +1,9 @@
 # Change any value here without changing application code.
+#
+# Local defaults below match a typical laptop: ~32 GiB RAM, CPU or integrated
+# graphics only. The tech spec suggests llama3.1:70b for reflection when you
+# have enough VRAM; on this machine use 8b locally or point reflection at a
+# cloud model (e.g. claude-sonnet-4) via LiteLLM and your provider API key.
 models:
   literature_review: ollama/llama3.1:8b
   hypothesis_gen: ollama/mistral:7b
@@ -6,7 +11,7 @@ models:
   methodology_design: ollama/llama3.1:8b
   experiment_execution: ollama/deepseek-coder:6.7b
   results_analysis: ollama/llama3.1:8b
-  reflection: ollama/llama3.1:70b
+  reflection: ollama/llama3.1:8b
 
 trinity_rft:
   base_model: Qwen/Qwen2.5-1.5B-Instruct
